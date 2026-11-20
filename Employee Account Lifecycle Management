@@ -1,0 +1,194 @@
+# Employee Account Lifecycle Management
+
+**Project:** Zero Trust Security Architecture  
+**Organisation:** Nordic Design Solutions (Fictional)  
+**Document Type:** Identity and Access Management (IAM)  
+**Status:** Independent Cybersecurity Project – In Progress  
+**Technology Reference:** Microsoft Entra ID
+
+---
+
+## 1. Introduction 
+
+Employee Account Lifecycle Management is an important component of Identity and Access Management (IAM).
+
+It ensures that employees receive appropriate system access when joining an organisation, that their permissions are updated when changing roles, and that access is removed when they leave.
+
+This document proposes an account lifecycle management process for the fictional organisation Nordic Design Solutions.
+
+The process follows the principles of least privilege, access governance and Zero Trust security.
+
+## 2. Account Lifecycle Stages
+
+The employee account lifecycle consists of three main stages.
+
+### 2.1 Joiner – Employee Onboarding
+
+When a new employee joins the organisation:
+
+1. HR confirms the employee's identity, role and start date.
+2. An authorised IT administrator creates the employee's account.
+3. Appropriate permissions are assigned based on the employee's department and job responsibilities.
+4. Multi-Factor Authentication (MFA) is configured.
+5. The employee receives approved company equipment.
+6. Access is recorded and verified.
+
+**Security objective:** Ensure that new employees receive only the permissions necessary for their assigned responsibilities.
+
+### 2.2 Mover – Employee Role Change
+
+When an employee changes department or responsibilities:
+
+1. HR or the manager submits an authorised role-change request.
+2. Existing permissions are reviewed.
+3. Permissions no longer required are removed.
+4. New permissions are assigned according to the employee's updated responsibilities.
+5. Any privileged access is reviewed separately.
+6. IT verifies that the updated permissions are correct.
+
+**Security objective:** Prevent permission accumulation and unnecessary access when employees change roles.
+
+### 2.3 Leaver – Employee Offboarding
+
+When an employee leaves the organisation, access must be removed in a controlled and timely manner.
+
+The offboarding process should be coordinated between HR, IT/Security and the employee's manager.
+
+## 3. Employee Offboarding Procedure
+
+### Step 1 – Confirm Employee Departure
+
+- HR confirms the employee's final working date and authorised access termination time.
+- The manager identifies outstanding handover responsibilities.
+- IT receives an approved offboarding request.
+
+### Step 2 – Disable Identity Access
+
+Using Microsoft Entra ID or the relevant identity management system:
+
+- Block sign-in to the employee account.
+- Revoke active authentication sessions and refresh tokens.
+- Remove unnecessary security group memberships.
+- Remove privileged roles and application permissions.
+- Review registered authentication methods and credentials.
+- Check access to connected third-party applications.
+
+The account should normally be disabled rather than immediately deleted, allowing approved retention and investigation requirements to be addressed.
+
+### Step 3 – Remove Business Application Access
+
+- Revoke payroll system permissions.
+- Remove access to HR management systems.
+- Review finance and business applications.
+- Disable application-specific accounts where required.
+- Revoke unnecessary remote access and VPN permissions.
+- Review shared folders and external sharing links.
+
+### Step 4 – Recover Company Equipment
+
+Collect and record:
+
+- Company laptop.
+- Work mobile phone.
+- Security keys and authentication devices.
+- Building access cards.
+- Other company-owned equipment.
+
+Record the asset identifiers and return date.
+
+Before wiping or reassigning devices, preserve required business records and any evidence subject to investigation or legal retention requirements.
+
+### Step 5 – Manage Email and Company Files
+
+- Set up an appropriate out-of-office response.
+- Arrange authorised mailbox access where business continuity requires it.
+- Apply applicable mailbox retention policies.
+- Transfer ownership of business files to an authorised employee or team.
+- Review OneDrive and shared storage permissions.
+- Remove unnecessary external sharing links.
+
+Avoid forwarding confidential business communications to personal email accounts.
+
+### Step 6 – Final Verification
+
+IT/Security and the employee's manager should verify that:
+
+- The identity account is disabled.
+- Active sessions have been revoked.
+- Privileged access has been removed.
+- Business application access has been revoked.
+- Company equipment has been returned or formally accounted for.
+- Required business data has been transferred or retained.
+- Outstanding access removal tasks have been completed.
+
+The completed checklist should be recorded with appropriate evidence and sign-off.
+
+## 4. Responsibility Matrix
+
+| Activity | HR | Manager | IT/Security |
+|---|---|---|---|
+| Confirm employee departure | Responsible | Informed | Informed |
+| Submit offboarding request | Responsible | Approves | Informed |
+| Identify business access | Consulted | Responsible | Consulted |
+| Disable identity account | Informed | Informed | Responsible |
+| Revoke application access | Informed | Consulted | Responsible |
+| Recover company equipment | Informed | Responsible | Supports |
+| Transfer business files | Consulted | Responsible | Supports |
+| Verify access removal | Consulted | Responsible | Responsible |
+
+The responsibility allocation should be adapted to the organisation's approved procedures.
+
+## 5. Security Risks and Recommended Controls
+
+| Security Risk | Recommended Control |
+|---|---|
+| Former employee retains access | Timely account deactivation |
+| Active sessions remain valid | Revoke sessions and tokens |
+| Unnecessary application permissions | Application access review |
+| Privileged accounts remain active | Privileged access review |
+| Company data remains on devices | Secure device recovery and sanitisation |
+| Confidential files are exposed | Access and external sharing review |
+| Incomplete offboarding | Documented checklist and sign-off |
+
+## 6. Zero Trust Principles Applied
+
+This employee lifecycle process supports Zero Trust through:
+
+**Least Privilege:** Employees receive only the access required for their current responsibilities.
+
+**Identity Verification:** Employee identity and access requests are validated through authorised processes.
+
+**Continuous Access Governance:** Permissions are reviewed when employees join, change roles or leave.
+
+**Assume Breach:** Prompt access revocation reduces the potential impact of compromised or abandoned accounts.
+
+**Monitoring and Accountability:** Access changes and administrative activities should be recorded for audit and investigation.
+
+## 7. Recommended Verification Checklist
+
+| Verification Item | Completion |
+|---|---|
+| Departure confirmed by HR | Pending |
+| Microsoft Entra ID account disabled | Pending |
+| Active sessions revoked | Pending |
+| Security groups and privileged roles reviewed | Pending |
+| Payroll and HR application access removed | Pending |
+| Other business application access removed | Pending |
+| Company equipment recovered | Pending |
+| Email and file ownership transferred | Pending |
+| Retention requirements checked | Pending |
+| IT and manager sign-off recorded | Pending |
+
+*Note: Pending entries are illustrative checklist placeholders, not completed operational actions.*
+
+## 8. Conclusion
+
+A structured employee account lifecycle management process helps organisations maintain control over identities, permissions and company resources.
+
+By coordinating HR, management and IT/Security activities, the organisation can reduce unauthorised access, protect confidential information and maintain business continuity.
+
+This process supports the implementation of Zero Trust security principles and strengthens the organisation's overall identity and access management practices.
+
+---
+
+**Disclaimer:** Nordic Design Solutions is a fictional organisation created for educational and portfolio purposes. This document represents an independent security design exercise, not a live Microsoft Entra ID implementation or an audit of a real organisation.
